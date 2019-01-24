@@ -366,33 +366,7 @@ int main() {
         cout << "Cannot open file" << endl;
         return -1;
     }
-    
-    // HARMONIC OSC Initialization
-     N = 2;
-     int n_eqs = N;
-     double ynew[n_eqs], ynew_prime[n_eqs], tinit, tmax, Emax, h;
-     // initialization
-     double yold_harm_osc[] = {1.0,0.0};
-     // run simulation for 200 days
-     tmax = 50.;
-     tinit = 0.0;
-     h = 0.01;
-     Emax = 1.0e-6;
-     adaptive_rk(yold_harm_osc,ynew,ynew_prime,h,Emax,tinit,
-		 tmax,n_eqs,harmonic_osc,ODE);
-    
-    // 2-BODY Initialization
-    N = 3;
-    n_eqs = 2*2*N; // n-body problem in 2D has 2*2*N equations
-    // initialization
-    double yold_2body[] = {0.0,0.0,0.0,3.84e8,-12.593,1019.0,0.0,0.0};
-    tmax = 60*60*24*200.0; // 200 days
-    tinit = 0.0;
-    h = 10.0;
-    Emax = 1.0;
-    adaptive_rk(yold_2body,ynew,ynew_prime,h,Emax,tinit,
-		tmax,n_eqs,three_body,ODE);
-    
+
     // 3-BODY Initialization
     N = 3;
     n_eqs = 2*2*N; // n-body problem in 2D has 2*2*N equations
